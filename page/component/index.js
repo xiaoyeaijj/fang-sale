@@ -1,12 +1,10 @@
 var app = getApp()
-
+const util = require('../../utils/util')
 Page({
   data: {
-    indicatorDots: false,
-    autoplay: false,
-    interval: 3000,
-    duration: 800,
-    bannerList:[],
+    tabList:['火热商家','好评商家'],
+    tabIndex: 0,
+    hotShopList:[],
     goodList: [],
   },
   onLoad: function () {
@@ -26,12 +24,14 @@ Page({
       url: app.globalData.domain + '/promotion/api/index/hot_shop_rank',
       method: 'post',
       success(res){
-        console.log('轮播图数据',res.data.data.list)
+        console.log('火热商家',res.data.data.list)
         let list = res.data.data.list
         list.map((item,index)=>{
-          item.shop_pic = `/image/b${index+1}.jpg`
+          let randomIndex = util.getRandomNumber(1,3)
+          let num = index < 3 ? index+1 : randomIndex
+          item.shop_pic = `/image/b${num}.jpg`
         })
-        self.setData({ bannerList: res.data.data.list })
+        self.setData({ hotShopList: list })
       }
     })
   },
@@ -42,8 +42,20 @@ Page({
       method: 'post',
       success(res){
         console.log('好店推荐',res.data.data.list)
-        self.setData({ goodList: res.data.data.list })
+        let list = res.data.data.list
+        list.map((item,index)=>{
+          let randomIndex = util.getRandomNumber(1,3)
+          let num = index < 3 ? index+1 : randomIndex
+          item.shop_pic = `/image/b${num}.jpg`
+        })
+        self.setData({ goodList: list })
       }
     })
+  },
+
+  /** 切换tab */
+  changeTab(e){
+    let {index} = e.currentTarget.dataset
+    this.setData({tabIndex:index})
   }
 })

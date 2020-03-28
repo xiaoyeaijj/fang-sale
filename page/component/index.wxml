@@ -1,31 +1,33 @@
 <view class="main">
-  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
-    <block wx:for="{{bannerList}}" wx:key="index">
-      <swiper-item data-shopid="{{item.id}}" bindtap="toShopDetail">
-        <image src="{{item.shop_pic}}" class="slide-image" width="100%" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class="selected">
-    <view class="select-title">
-      <text>好店推荐</text>
-    </view>
-    <view class="select-top">
-      <view class="select-top-small">
-        <navigator url="list/list?shopId={{goodList[0].id}}">
-          <image src="/image/s1.png"></image>
-        </navigator>
-      </view>
-      <view class="select-top-small">
-        <navigator url="list/list?shopId={{goodList[0].id}}">
-          <image src="/image/s2.png"></image>
-        </navigator>
+  <view class="orders-box">
+    <view class="orders-tab">
+      <view class="tabItem {{tabIndex==index?'tabItemAc':''}}" wx:for="{{tabList}}" wx:key="index" data-index="{{index}}" bindtap="changeTab">
+        <text>{{item}}</text>
       </view>
     </view>
-    <view class="select-bottom">
-      <navigator url="list/list?shopId={{goodList[0].id}}">
-        <image src="/image/s3.png"></image>
-      </navigator>
+    <view class="tabContent" wx:if="{{tabIndex==0}}">
+      <view wx:for="{{hotShopList}}" wx:key="index" class="orderItem">
+        <view class="shop_pic">
+          <image class="img" src="{{item.shop_pic}}"></image>
+        </view>
+        <view class="shop_info">
+          <view class="shop_name">{{item.shop_name}}</view>
+          <view class="shop_rank">火热排行榜第{{item.rank}}名</view>
+          <view class="num">已有{{item.get_coupon_number}}人领取了该店的优惠券</view>
+        </view>
+      </view>
+    </view>
+    <view class="tabContent" wx:if="{{tabIndex==1}}">
+      <view wx:for="{{goodList}}" wx:key="index" class="orderItem">
+        <view class="shop_pic">
+          <image class="img" src="{{item.shop_pic}}"></image>
+        </view>
+        <view class="shop_info">
+          <view class="shop_name">{{item.shop_name}}</view>
+          <view class="shop_rank">好评排行榜第{{item.rank}}名</view>
+          <view class="num">综合评分 {{item.star}}</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
