@@ -1,0 +1,75 @@
+@import '../../common/common.wxss';
+page{
+    background-color: #efefef;
+}
+.header{
+    height: 160rpx;
+    width: 100%;
+    line-height: 50rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    background: #AB956D;
+    font-size: 28rpx;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-left{
+    display: flex;
+    align-items: center;
+}
+.thumb{
+    width: 100rpx;
+    height: 100rpx;
+    border: 5rpx solid #fff;
+    border-radius: 50%;
+}
+.nameblock{
+    display: flex;
+    flex-direction: column;
+}
+.nickname{
+    margin-left: 10rpx;
+}
+
+
+.orders-box{
+    color: #999;
+    font-size: 28rpx;
+}
+.orders-tab{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2rpx solid #ddd;
+    margin-bottom: 15rpx;
+}
+.tabItem{
+    padding: 20rpx;
+}
+.tabItemAc{
+    color: #666;
+    border-bottom: 5rpx solid #AB956D;
+}
+.orderItem{
+    background-color: #fff;
+    margin: 10rpx 20rpx;
+    padding: 10rpx 20rpx;
+    border-radius: 20rpx;
+    position: relative;
+    height: 200rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+.commentBtn{
+    position: absolute;
+    bottom: 20rpx;
+    right: 20rpx;
+    width: 150rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #333;
+    border: 2rpx solid #eee;
+}

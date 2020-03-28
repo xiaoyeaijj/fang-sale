@@ -1,0 +1,31 @@
+<view class="main">
+  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{bannerList}}" wx:key="index">
+      <swiper-item data-shopid="{{item.id}}" bindtap="toShopDetail">
+        <image src="{{item.shop_pic}}" class="slide-image" width="100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="selected">
+    <view class="select-title">
+      <text>好店推荐</text>
+    </view>
+    <view class="select-top">
+      <view class="select-top-small">
+        <navigator url="list/list?shopId={{goodList[0].id}}">
+          <image src="/image/s1.png"></image>
+        </navigator>
+      </view>
+      <view class="select-top-small">
+        <navigator url="list/list?shopId={{goodList[0].id}}">
+          <image src="/image/s2.png"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="select-bottom">
+      <navigator url="list/list?shopId={{goodList[0].id}}">
+        <image src="/image/s3.png"></image>
+      </navigator>
+    </view>
+  </view>
+</view>

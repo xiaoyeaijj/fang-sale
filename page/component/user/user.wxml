@@ -1,0 +1,32 @@
+<view class="main">
+  <view class="header">
+    <view class="header-left">
+      <image src="{{thumb}}" class="thumb"></image>
+      <view class="nameblock">
+        <view class="nickname">{{nickname}} {{studentId}}</view>
+        <view class="nickname">学校：{{college}}</view>
+      </view>
+    </view>
+    <view class="header-right">
+      <view class="integral">积分：{{integral}}</view>
+      <view class="about" bindtap="toSignIn">签到</view>
+    </view>
+  </view>
+
+  <view class="orders-box">
+    <view class="orders-tab">
+      <view class="tabItem {{tabIndex==index?'tabItemAc':''}}" wx:for="{{tabList}}" wx:key="index" data-index="{{index}}" bindtap="changeTab">
+        <text>{{item}}</text>
+      </view>
+    </view>
+    <view class="tabContent" wx:if="{{tabIndex==0}}">
+      <view wx:for="{{waitCommentOrderList}}" wx:key="index" class="orderItem">
+        <view>{{item.shop_name}}</view>
+        <view>{{item.create_date}} 下单</view>
+        <view>{{item.update_date}} 消费</view>
+        <view class="commentBtn">评价</view>
+      </view>
+    </view>
+  </view>
+
+</view>
