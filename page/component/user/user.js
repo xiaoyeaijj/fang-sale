@@ -42,15 +42,6 @@ Page({
     var self = this;
     self.getUserInfoFun()
     self.getWaitCommentOrder()
-    wx.login({
-      success (res) {
-        if (res.code) {
-          console.log(res.code)
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
   },
 
   /** 获取我的信息 */
