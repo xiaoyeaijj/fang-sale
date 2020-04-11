@@ -6,20 +6,13 @@ App({
         if (res.code) {
           //发起网络请求,获取openid
           wx.request({
-            url: that.globalData.domain + '/login',
+            url: that.globalData.domain + '/promotion/api/user/register',
             data: {
               code: res.code//临时code验证
             },
             success: function (obj) {
-              //本地存储openid,unionid更好
-              wx.setStorage({
-                key: "openid",
-                data: obj.data.Openid
-              })
-              // wx.showModal({
-              //   title: '测试',
-              //   content: "返回数据"+obj.data.OpenId
-              // })
+              //本地存储openid
+              wx.setStorageSync('openid', obj.data.Openid)
             }
           })
         } else {
@@ -31,6 +24,6 @@ App({
 ,
   globalData: {
     hasLogin: false,
-    domain: 'http://111.229.71.144:8003',
+    domain: 'http://134.175.185.229:8003',
   }
 })
