@@ -2,7 +2,7 @@
     <view wx:if="{{postList&&postList.length>0}}">
         <view class="cart-list" class="cart-list">
             <view class="cart-item" wx:for="{{postList}}" wx:key="index" data-id="{{item.id}}" bindtap="tocartsDetail">
-               <view class="cart-name">发帖人：{{item.real_name}}</view>
+               <view class="cart-name">发帖人：{{item.real_name || '匿名用户'}}</view>
                <view class="cart-content">{{item.title}}</view>
                <view class="cart-detail">详情</view>
             </view>
