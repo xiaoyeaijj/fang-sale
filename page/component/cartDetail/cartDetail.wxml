@@ -1,0 +1,39 @@
+<!--page/component/cartDetail.wxml-->
+<view class="cartdetail-page">
+  <view class="cartdetail-title">{{title}}</view>
+  <view class="cartdetail-user">
+    <view class="user-name">{{username}}</view>
+    <view class="user-time">{{createdate}}</view>
+  </view>
+  <view class="cart-content">{{content}}</view>
+
+  <view class="user-comment-like">
+    <view class="user-comment">观看{{view}}</view>
+    <view class="user-like">点赞{{like}}</view>
+  </view>
+
+  <view class="commentBlock">
+    <view class="commentItem" wx:for="{{commentList}}" wx:key="index">
+      <view class="commentItem-text">{{item.comment_by||'匿名用户'}}：<text style="color:#333;"> {{item.comment}}</text></view>
+      <view class="commentItem-date">{{item.comment_date}}</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{showCommentDialog}}" class="commonetDialog-mask"></view>
+<view wx:if="{{showCommentDialog}}" class="commonetDialog-dialog">
+    <view class="commonetDialog-close" bindtap="closeDialog">关闭</view>
+    <view class="commonetDialog-content">
+        <textarea placeholder="请输入评论内容" class="commonetDialog-textarea" bindinput="contentInput" maxlength="100"></textarea>
+    </view>
+    <view class="commonetDialog-btn" bindtap="submitComment">发表评论</view>
+</view>
+
+<view class="cart-bottom">
+  <view class="cart-aciton cart-comment" bindtap="handleComment">评论</view>
+  <view class="cart-aciton cart-like" 
+    style="{{likeStauts==1?'color:rgb(248, 67, 104);':''}}"
+    bindtap="handleLike">
+    {{likeStauts==0?'点赞':'取消点赞'}}
+  </view>
+</view>

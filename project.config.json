@@ -65,6 +65,21 @@
 					"id": -1,
 					"name": "page/component/category/category",
 					"pathName": "page/component/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/component/cart/cart",
+					"pathName": "page/component/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "page/component/cartDetail/cartDetail",
+					"pathName": "page/component/cartDetail/cartDetail",
+					"query": "id=11ea-7fb4-914d-525400da10f9-615df0a6",
 					"scene": null
 				}
 			]

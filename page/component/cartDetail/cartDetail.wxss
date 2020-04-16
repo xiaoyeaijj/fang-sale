@@ -1,0 +1,134 @@
+/* page/component/cartDetail.wxss */
+.cartdetail-page{
+  margin-bottom: 120rpx;
+}
+.cartdetail-title{
+  color: #333;
+  font-size: 32rpx;
+  margin: 20rpx;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.cartdetail-user{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 28rpx;
+  color: #999;
+}
+.user-name{
+  margin-right: 10rpx;
+}
+.user-time{
+  margin-right: 20rpx;
+}
+
+.cart-content{
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  word-break: break-all;
+}
+
+.user-comment-like{
+  display: flex;
+  justify-content: flex-end;
+  color: #999;
+  font-size: 26rpx;
+}
+.user-like{
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+}
+
+.commentBlock{
+  margin-top: 20rpx;
+  border-top: 20rpx solid #eee;
+}
+.commentItem{
+  margin: 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.commentItem-text{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+.commentItem-date{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 26rpx;
+  color: #999;
+  line-height: 2;
+}
+
+.commonetDialog-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 150;
+  background-color: rgba(0, 0, 0, .6);
+}
+.commonetDialog-dialog{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 680rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  z-index: 200;
+}
+.commonetDialog-textarea{
+  margin: 10rpx 0 20rpx;
+  padding: 10rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  color: #666;
+  border: 2rpx solid #eee;
+  width: 100%;
+  height: 270rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  word-break: break-all;
+}
+.commonetDialog-close{
+  position: absolute;
+  right: 5rpx;
+  top: -35rpx;
+  width: 60rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.commonetDialog-btn{
+  margin-left: 140rpx;
+  width: 400rpx;
+  height: 80rpx;
+  background-color: #AB956D;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.cart-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+}
+.cart-aciton {
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  line-height: 100rpx;
+  border: 2rpx solid #eee;
+}
