@@ -6,7 +6,7 @@
       </view>
     </view>
     <view class="tabContent" wx:if="{{tabIndex==0}}">
-      <view wx:for="{{hotShopList}}" wx:key="index" class="orderItem">
+      <view wx:for="{{hotShopList}}" wx:key="index" class="orderItem" data-shopid="{{item.id}}" bindtap="toShopDetail">
         <view class="shop_pic">
           <image class="img" src="{{item.shop_pic}}"></image>
         </view>
@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="tabContent" wx:if="{{tabIndex==1}}">
-      <view wx:for="{{goodList}}" wx:key="index" class="orderItem">
+      <view wx:for="{{goodList}}" wx:key="index" class="orderItem" data-shopid="{{item.id}}" bindtap="toShopDetail">
         <view class="shop_pic">
           <image class="img" src="{{item.shop_pic}}"></image>
         </view>

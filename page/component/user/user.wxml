@@ -1,10 +1,11 @@
 <view class="main">
   <view class="header">
     <view class="header-left">
-      <image src="{{thumb}}" class="thumb"></image>
+      <open-data type="userAvatarUrl" class="thumb"></open-data>
       <view class="nameblock">
-        <view class="nickname">{{nickname}} {{studentId}}</view>
-        <view class="nickname">学校：{{college}}</view>
+        <view class="nickname">{{nickname}} </view>
+        <open-data type="userNickName" class="nickname"></open-data>
+        <view class="nickname">学校：{{college || '中山大学新华学院'}}</view>
       </view>
     </view>
     <view class="header-right">
@@ -21,6 +22,14 @@
     </view>
     <view class="tabContent" wx:if="{{tabIndex==0}}">
       <view wx:for="{{waitCommentOrderList}}" wx:key="index" class="orderItem">
+        <view>{{item.shop_name}}</view>
+        <view>{{item.create_date}} 下单</view>
+        <view>{{item.update_date}} 消费</view>
+        <view class="commentBtn">评价</view>
+      </view>
+    </view>
+    <view class="tabContent" wx:if="{{tabIndex==1}}">
+      <view wx:for="{{doneCommentOrderList}}" wx:key="index" class="orderItem">
         <view>{{item.shop_name}}</view>
         <view>{{item.create_date}} 下单</view>
         <view>{{item.update_date}} 消费</view>

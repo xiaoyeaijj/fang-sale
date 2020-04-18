@@ -1,15 +1,20 @@
 <view class="main">
     <view class="banner">
-        <image src="/image/list1.png"></image>
+        <image src="/image/s3.png" mode="aspectFill"></image>
+        <view class="shopBlock">
+            <view class="shopname">{{shop_name}}({{shop_college}}店)</view>
+            <view class="shoptime">小店营业时间：{{bussin_time}}</view>
+            <view class="shopphone">联系我们：<text style="color:rgba(0,84,255,.5);">{{shop_tel}}</text></view>
+            <view class="shopdesc">公告：<text style="color:#ab956d;">{{shop_desc}}</text></view>
+            <view class="shopaddress">地址：{{shop_address}}</view>
+        </view>
     </view>
 
     <view class="list-box">
         <view class="newest-list" wx:for="{{couponList}}" wx:key="index">
-            <navigator url="../details/details">
-                <image src="{{item.pic}}"></image>
-                <view class="newest-text"><text>{{item.name}}</text></view>
-                <view class="newest-text"><text>￥ {{item.text}}</text></view>
-            </navigator>
+            <view class="newest-text"><text>{{item.coupon_name}}</text></view>
+            <view class="newest-desc"><text>全天通用</text></view>
+            <view class="newest-btn" data-couponid="{{item.id}}" bindtap="getCoupon">立即领取</view>
         </view>
     </view>
 </view>

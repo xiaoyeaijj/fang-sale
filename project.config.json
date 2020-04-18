@@ -81,6 +81,13 @@
 					"pathName": "page/component/cartDetail/cartDetail",
 					"query": "id=11ea-7fb4-914d-525400da10f9-615df0a6",
 					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "page/component/list/list",
+					"pathName": "page/component/list/list",
+					"query": "shopId=11ea-2f7f-ba88-70188b39697a-58316328",
+					"scene": null
 				}
 			]
 		}

@@ -3,6 +3,7 @@ var app = getApp()
 
 Page({
   data:{
+    openid:'',
     thumb:'',
     nickname:'方桂珍',
     college:'中山大学新华学院',
@@ -12,36 +13,43 @@ Page({
     tabIndex: 0,
     waitCommentOrderList:[
         {
-          "coupon_id": "11ea-2f85-b9ac-70188b39697a-40c54228",
-          "create_date": "2020-01-05 15:23:41",
-          "id": "11ea-2f8c-94e4-70188b39697a-4ca6f1c8",
-          "is_del": 0,
-          "shop_id": "11ea-2ef5-8d58-70188b39697a-44a2fd0e",
-          "shop_name": "益禾堂",
-          "star": 0,
-          "state": 1,
-          "update_date": "2020-01-05 15:23:41",
-          "user_id": "11ea-2f89-a864-70188b39697a-eea0b582"
+          "create_date": "2020-01-05 15:24:33",
+          "id": "11ea-2f8c-94e4-70188b39697a-6b968e6e",
+          "shop_name": "码头1978",
+          "update_date": "2020-01-05 16:54:15"
       },
       {
-        "coupon_id": "11ea-2f85-b9ac-70188b39697a-40c54228",
-        "create_date": "2020-01-05 15:23:41",
-        "id": "11ea-2f8c-94e4-70188b39697a-4ca6f1c8",
-        "is_del": 0,
-        "shop_id": "11ea-2ef5-8d58-70188b39697a-44a2fd0e",
-        "shop_name": "书亦烧仙草",
-        "star": 0,
-        "state": 1,
-        "update_date": "2020-02-05 18:23:41",
-        "user_id": "11ea-2f89-a864-70188b39697a-eea0b582"
-    }
+        "create_date": "2020-01-05 15:24:33",
+        "id": "11ea-2f8c-94e4-70188b39697a-6b968e6e",
+        "shop_name": "码头1978",
+        "update_date": "2020-01-05 16:54:15"
+}
     ],
+    doneCommentOrderList:[
+      {
+        "create_date": "2020-01-05 15:24:33",
+        "id": "11ea-2f8c-94e4-70188b39697a-6b968e6e",
+        "shop_name": "码头1978",
+        "update_date": "2020-01-05 16:54:15"
+    },
+    {
+      "create_date": "2020-01-05 15:24:33",
+      "id": "11ea-2f8c-94e4-70188b39697a-6b968e6e",
+      "shop_name": "码头1978",
+      "update_date": "2020-01-05 16:54:15"
+}
+  ],
     domain:app.globalData.domain
   },
   onLoad(){
     var self = this;
+    let openid = wx.getStorageSync('openid')
+    self.setData({
+      openid: openid
+    })
     self.getUserInfoFun()
     self.getWaitCommentOrder()
+    self.getDoneCommentOrder()
   },
 
   /** 获取我的信息 */
@@ -50,8 +58,11 @@ Page({
     wx.request({
       url: app.globalData.domain + '/promotion/api/user/info',
       method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 修改这个参数格式为formdata
+      },
       data:{
-        user_id:'11ea-2f89-a864-70188b39697a-eea0b582'
+        openid: self.data.openid
       },
       success(res){
         console.log('我的信息',res.data)
@@ -70,11 +81,15 @@ Page({
 
   /** 用户签到 */
   toSignIn(){
+    let self = this
     wx.request({
       url: app.globalData.domain + '/promotion/api/user/info',
       method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 修改这个参数格式为formdata
+      },
       data:{
-        user_id:'11ea-2f89-a864-70188b39697a-eea0b582',
+        openid: self.data.openid,
         is_check_in: 1
       },
       success(res){
@@ -96,14 +111,40 @@ Page({
     wx.request({
       url: app.globalData.domain + '/promotion/api/user/wait_comment',
       method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 修改这个参数格式为formdata
+      },
       data:{
-        user_id:'11ea-2f89-a864-70188b39697a-eea0b582'
+        openid: self.data.openid
       },
       success(res){
         console.log('待评价订单',res.data)
         if(res.data.code==200){
           self.setData({
             waitCommentOrderList: res.data.data.list
+          })
+        }
+      }
+    })
+  },
+
+  /** 获取已完成订单 */
+  getDoneCommentOrder(){
+    let self = this
+    wx.request({
+      url: app.globalData.domain + '/promotion/api/user/completed_order',
+      method: 'post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 修改这个参数格式为formdata
+      },
+      data:{
+        openid: self.data.openid
+      },
+      success(res){
+        console.log('已完成订单',res.data)
+        if(res.data.code==200){
+          self.setData({
+            doneCommentOrderList: res.data.data.list
           })
         }
       }

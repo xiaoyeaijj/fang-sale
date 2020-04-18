@@ -1,30 +1,94 @@
 @import '../../common/common.wxss';
-
+page{
+    background-color: #eee;
+}
 .banner image{
     width: 100%;
-    height: 400rpx;
+    height: 300rpx;
+    position: relative;
+}
+.shopBlock{
+    position: absolute;
+    top: 50rpx;
+    left: 2%;
+    width: 96%;
+    height: 360rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    box-shadow: 1px 1px 2px #ddd, -1px -1px 2px #ddd;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.shopname{
+    font-size: 40rpx;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.shoptime{
+    padding-top: 15rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+.shopphone{
+    font-size: 28rpx;
+    color: #555;
+}
+.shopdesc{
+    font-size: 28rpx;
+    color: #444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.shopaddress{
+    font-size: 28rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .list-box{
-    padding: 30rpx 20rpx;
+    margin-top: 100rpx;
+    padding: 30rpx 0;
 }
 .newest-list{
     display: inline-block;
-    width: 347rpx;
-    height: 347rpx;
-    margin:0 15rpx 10rpx 0;
+    width: 96vw;
+    height: 150rpx;
+    margin: 0 2vw;
     border-radius: 10px;
-    text-align: center;
-    background: #f5f6f5;
-}
-.newest-list:nth-child(2n){
-    margin-right: 0;
-}
-.newest-list image{
-    width: 180rpx;
-    height: 180rpx;
-    margin: 30rpx 0 20rpx;
+    background: #fff;
+    box-shadow: 1px 1px 2px #ddd;
+    padding: 20rpx;
+    box-sizing: border-box;
+    position: relative;
 }
 .newest-list .newest-text{
-    font-size: 32rpx;
-    line-height: 45rpx;
+    padding-top: 5rpx;
+    font-size: 38rpx;
+    font-weight: bold;
+}
+.newest-desc{
+    padding-top: 10rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+.newest-btn{
+    position: absolute;
+    top: 35rpx;
+    font-weight: 600;
+    right: 20rpx;
+    width: 200rpx;
+    height: 80rpx;
+    background: linear-gradient(to Right, #f3745b, #FF5F73);
+    border-radius: 40rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #fff;
 }
