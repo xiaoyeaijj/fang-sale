@@ -23,7 +23,7 @@ Page({
       method: 'post',
       data: {
         page: self.data.page,
-        limit:10
+        limit:20
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 修改这个参数格式为formdata
